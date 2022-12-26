@@ -1,0 +1,56 @@
+[
+  {
+    "id": "63a9b994948f84df9dbbee23",
+    "index": 0,
+    "picture": "https://www.bestusedgymequipment.com/wp-content/uploads/2020/09/cybex-vr2-chestpress-1-1.jpg",
+    "time": 35,
+    "forAge": "20-25",
+    "name": "CHEST PRESS",
+    "about": "If you're looking for easy to use exercise equipment that targets your upper body, then you should try out the chest press machine."
+  },
+  {
+    "id": "63a9b9940af690c4eaea17db",
+    "index": 1,
+    "picture": "https://www.bestusedgymequipment.com/wp-content/uploads/2018/04/olympic-flat-bench-600x600.jpg",
+    "time": 25,
+    "forAge": "20-30",
+    "name": "BENCH PRESS",
+    "about": "The bench press is a popular type of gym equipment, especially for those just starting to get into weight lifting"
+  },
+  {
+    "id": "63a9b994aad9b640a7a74263",
+    "index": 2,
+    "picture": "https://www.bestusedgymequipment.com/wp-content/uploads/2020/09/olympic-incline-bench-600x600.jpg",
+    "time": 35,
+    "forAge": "20-25",
+    "name": "INCLINE BENCH PRESS",
+    "about": "An incline bench press allows you to move the back support upwards at an angle to target your chest"
+  },
+  {
+    "id": "63a9b9944863f862135e6dfe",
+    "index": 3,
+    "picture": "https://www.bestusedgymequipment.com/wp-content/uploads/2020/09/6-1-cybex-lat-pulldown.jpg",
+    "time": 45,
+    "forAge": "20-25",
+    "name": "LAT PULL DOWN",
+    "about": "It's a compound exercise that specifically allows you to work on your lat muscles."
+  },
+  {
+    "id": "63a9b99474de6bfd0af16d7c",
+    "index": 4,
+    "picture": "https://www.bestusedgymequipment.com/wp-content/uploads/2021/01/buge_hex_dumbbells_50lbs-rack-600x600.jpg",
+    "time": 40,
+    "forAge": "15-35",
+    "name": "DUMBBELLS",
+    "about": "If you're new to weight training, you will want to use dumbbells that have the lowest weight and then gradually increase from there"
+  },
+  {
+    "id": "63a9b9941ceac8e63347466e",
+    "index": 5,
+    "picture": "https://www.bestusedgymequipment.com/wp-content/uploads/2018/02/freemotion-reflex-t11-8-treadmill1-600x600.jpg",
+    "time": 120,
+    "forAge": "20-35",
+    "name": "TREADMILL",
+    "about": "The treadmill is mainly a cardio machine that focuses on your lower body and increase your cardiovascular endurance."
+  }
+]
