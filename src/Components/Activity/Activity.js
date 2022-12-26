@@ -13,7 +13,9 @@ const Activity = (props) => {
         <p className="font-semibold"> For age: {forAge} </p>
         <p className="font-semibold">Time required: {time}s </p>
         <div className="card-actions">
-          <button className="btn btn-accent text-white">Add to list</button>
+          <button className="btn btn-accent text-white px-8">
+            Add to list
+          </button>
         </div>
       </div>
     </div>
