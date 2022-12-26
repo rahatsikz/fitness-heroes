@@ -5,7 +5,7 @@ import Header from "./Components/Header/Header";
 
 function App() {
   return (
-    <div className="bg-emerald-50 h-screen">
+    <div className="bg-emerald-50 h-fit">
       <Header></Header>
       <Excercises></Excercises>
     </div>
