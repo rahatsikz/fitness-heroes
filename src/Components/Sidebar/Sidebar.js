@@ -6,6 +6,14 @@ import selfImage from "../../images/self.png";
 const Sidebar = (props) => {
   const { selection } = props;
   const excerciseTime = selection.reduce((x, y) => x + y.time, 0);
+  const breakTimes = document.getElementsByClassName("break");
+  for (const breakTime of breakTimes) {
+    breakTime.addEventListener("click", function () {
+      const display = document.getElementById("break-display");
+      display.innerText = breakTime.innerText.slice(0, 2) + " Seconds";
+    });
+  }
+
   return (
     <div className="sticky top-4">
       <div className="flex items-center justify-center">
@@ -34,11 +42,11 @@ const Sidebar = (props) => {
       </div>
       <p className="text-xl font-bold my-4">Add a break</p>
       <div className="flex justify-evenly bg-emerald-100 py-6 rounded-lg">
-        <span className="rounded-full bg-white py-2.5 px-3.5">10</span>
-        <span className="rounded-full bg-white py-2.5 px-3.5">20</span>
-        <span className="rounded-full bg-white py-2.5 px-3.5">30</span>
-        <span className="rounded-full bg-white py-2.5 px-3.5">40</span>
-        <span className="rounded-full bg-white py-2.5 px-3.5">50</span>
+        <button className="rounded-full bg-white py-4 px-4 break">10s</button>
+        <button className="rounded-full bg-white py-4 px-4 break">20s</button>
+        <button className="rounded-full bg-white py-4 px-4 break">30s</button>
+        <button className="rounded-full bg-white py-4 px-4 break">40s</button>
+        <button className="rounded-full bg-white py-4 px-4 break">50s</button>
       </div>
       <p className="text-xl font-bold my-4">Excercise Details</p>
       <div className="flex justify-around bg-emerald-100 py-6 rounded-lg">
@@ -47,7 +55,9 @@ const Sidebar = (props) => {
       </div>
       <div className="flex justify-around bg-emerald-100 py-6 rounded-lg mt-4">
         <span className="text-lg font-semibold">Break Time</span>
-        <span>0</span>
+        <span id="break-display" className="text-gray-500">
+          0 Seconds
+        </span>
       </div>
       <div className="text-center mt-8">
         <button className="btn btn-accent btn-wide text-white">
