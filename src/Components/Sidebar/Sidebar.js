@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import selfImage from "../../images/self.png";
+import "./Sidebar.css";
 
 const Sidebar = (props) => {
   const { selection } = props;
@@ -11,6 +12,12 @@ const Sidebar = (props) => {
     breakTime.addEventListener("click", function () {
       const display = document.getElementById("break-display");
       display.innerText = breakTime.innerText.slice(0, 2) + " Seconds";
+
+      const current = document.getElementsByClassName("active");
+      if (current.length > 0) {
+        current[0].className = current[0].className.replace(" active", "");
+      }
+      this.className += " active";
     });
   }
 

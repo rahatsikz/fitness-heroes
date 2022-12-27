@@ -16,8 +16,8 @@ const Excercises = () => {
     setSelection(newSelection);
   };
   return (
-    <div className="flex flex-col xl:flex-row">
-      <div className="px-12 py-6 grid xl:w-3/4 justify-items-center">
+    <div className="flex flex-col 2xl:flex-row">
+      <div className="px-12 py-6 grid 2xl:w-3/4 justify-items-center">
         <h3 className="text-xl justify-self-start pb-6">
           Select today's exercise
         </h3>
@@ -31,7 +31,7 @@ const Excercises = () => {
           ))}
         </div>
       </div>
-      <div className="xl:w-1/4 bg-white xl:-mt-24 p-12">
+      <div className="2xl:w-1/4 bg-white 2xl:-mt-24 p-12">
         <Sidebar selection={selection}></Sidebar>
       </div>
     </div>

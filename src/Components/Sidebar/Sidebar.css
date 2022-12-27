@@ -1,0 +1,5 @@
+.active,
+.break:hover {
+  background-color: #2aa79b;
+  color: white;
+}
