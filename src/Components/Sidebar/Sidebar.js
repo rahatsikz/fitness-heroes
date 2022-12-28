@@ -1,28 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import selfImage from "../../images/self.png";
 import "./Sidebar.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// toast.configure();
+import {
+  addClassActive,
+  addToDb,
+  getClassActive,
+  getFromdb,
+} from "../../utilities/fakedb";
 
 const Sidebar = (props) => {
   const { selection } = props;
   const excerciseTime = selection.reduce((x, y) => x + y.time, 0);
+
+  const [restTime, setRestTime] = useState([]);
+  const [active, setActive] = useState([]);
+
+  useEffect(() => {
+    const storedTime = getFromdb("time");
+    setRestTime(storedTime);
+  }, []);
+
+  useEffect(() => {
+    const storedClass = getClassActive("name");
+    setActive(storedClass);
+    if (storedClass) {
+      const breakTimes = document.getElementsByClassName("break");
+
+      if (parseInt(restTime.slice(0, 2)) === 10) {
+        breakTimes[0].className += " active";
+      } else if (parseInt(restTime.slice(0, 2)) === 20) {
+        breakTimes[1].className += " active";
+      } else if (parseInt(restTime.slice(0, 2)) === 30) {
+        breakTimes[2].className += " active";
+      } else if (parseInt(restTime.slice(0, 2)) === 40) {
+        breakTimes[3].className += " active";
+      } else if (parseInt(restTime.slice(0, 2)) === 50) {
+        breakTimes[4].className += " active";
+      }
+    }
+  }, [restTime]);
+
   const breakTimes = document.getElementsByClassName("break");
   for (const breakTime of breakTimes) {
     breakTime.addEventListener("click", function () {
       const display = document.getElementById("break-display");
       display.innerText = breakTime.innerText.slice(0, 2) + " Seconds";
 
+      let activeStatus;
       const current = document.getElementsByClassName("active");
       if (current.length > 0) {
         current[0].className = current[0].className.replace(" active", "");
+        activeStatus = "true";
       }
       this.className += " active";
+
+      addToDb("time", display.innerText);
+      addClassActive("name", activeStatus);
     });
   }
+
   const breakDisplay = document.getElementById("break-display");
 
   const handleToast = (time, breakValue) => {
@@ -62,7 +102,10 @@ const Sidebar = (props) => {
         </span>
       </div>
       <p className="text-xl font-bold my-4">Add a break</p>
-      <div className="flex justify-evenly bg-emerald-100 py-6 rounded-lg">
+      <div
+        className="flex justify-evenly bg-emerald-100 py-6 rounded-lg"
+        style={{ active }}
+      >
         <button className="rounded-full bg-white py-4 px-4 break">10s</button>
         <button className="rounded-full bg-white py-4 px-4 break">20s</button>
         <button className="rounded-full bg-white py-4 px-4 break">30s</button>
@@ -77,7 +120,7 @@ const Sidebar = (props) => {
       <div className="flex justify-around bg-emerald-100 py-6 rounded-lg mt-4">
         <span className="text-lg font-semibold">Break Time</span>
         <span id="break-display" className="text-gray-500">
-          0 Seconds
+          {restTime ? restTime : "0 Seconds"}
         </span>
       </div>
       <div className="text-center mt-8">
