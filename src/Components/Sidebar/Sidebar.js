@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import selfImage from "../../images/self.png";
 import "./Sidebar.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// toast.configure();
 
 const Sidebar = (props) => {
   const { selection } = props;
@@ -20,7 +23,18 @@ const Sidebar = (props) => {
       this.className += " active";
     });
   }
+  const breakDisplay = document.getElementById("break-display");
 
+  const handleToast = (time, breakValue) => {
+    toast.success(
+      `You completed exercises in ${time}s with ${
+        breakValue ? parseInt(breakDisplay.innerText.slice(0, 2)) : 0
+      }s break`,
+      {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      }
+    );
+  };
   return (
     <div className="sticky top-4">
       <div className="flex items-center justify-center">
@@ -67,9 +81,13 @@ const Sidebar = (props) => {
         </span>
       </div>
       <div className="text-center mt-8">
-        <button className="btn btn-accent btn-wide text-white">
+        <button
+          className="btn btn-accent btn-wide text-white"
+          onClick={() => handleToast(excerciseTime, breakDisplay)}
+        >
           Activity Completed
         </button>
+        <ToastContainer />
       </div>
     </div>
   );
