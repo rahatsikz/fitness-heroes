@@ -37,7 +37,7 @@ const Excercises = () => {
         </div>
       </div>
 
-      <div className="w-3/4 xl:w-1/2 mx-auto p-12">
+      <div className="w-4/5 xl:w-1/2 mx-auto p-12">
         <p className="text-center mb-4 text-xl font-bold">FAQ</p>
 
         <div className="collapse collapse-arrow">
@@ -69,7 +69,23 @@ const Excercises = () => {
               State are variables that react will react , updating the UI when
               values changes. One should use state to store the data your
               current page needs in your controller-view. To pass data & event
-              handlers down to your child components, use props.
+              handlers down to your child components, you should use props.
+            </p>
+          </div>
+        </div>
+
+        <div className="collapse collapse-arrow">
+          <input type="checkbox" className="peer" />
+          <div className="collapse-title bg-white text-stone-500 peer-checked:bg-bg-white peer-checked:text-stone-500">
+            What does useEffect do except fetching data from api?
+          </div>
+          <div className="collapse-content bg-emerald-400 my-4 text-primary-content peer-checked:bg-emerald-400 peer-checked:text-secondary-content">
+            <p className="pt-3">
+              The motivation behind the introduction of useEffect Hook is to
+              eliminate the side-effects of using class-based components. It can
+              be used for a ton of things, from updating the DOM, setting up
+              subscriptions to creating and cleaning up timers to changing the
+              value of a ref.
             </p>
           </div>
         </div>
