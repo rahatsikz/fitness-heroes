@@ -17,7 +17,7 @@ const Sidebar = (props) => {
   const excerciseTime = selection.reduce((x, y) => x + y.time, 0);
 
   const [restTime, setRestTime] = useState([]);
-  const [active, setActive] = useState([]);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const storedTime = getFromdb("time");
@@ -50,11 +50,11 @@ const Sidebar = (props) => {
       const display = document.getElementById("break-display");
       display.innerText = breakTime.innerText.slice(0, 2) + " Seconds";
 
-      let activeStatus;
+      let activeStatus = active;
       const current = document.getElementsByClassName("active");
       if (current.length > 0) {
         current[0].className = current[0].className.replace(" active", "");
-        activeStatus = "true";
+        activeStatus = true;
       }
       this.className += " active";
 
@@ -102,10 +102,7 @@ const Sidebar = (props) => {
         </span>
       </div>
       <p className="text-xl font-bold my-4">Add a break</p>
-      <div
-        className="flex justify-evenly bg-emerald-100 py-6 rounded-lg"
-        style={{ active }}
-      >
+      <div className="flex justify-evenly bg-emerald-100 py-6 rounded-lg">
         <button className="rounded-full bg-white py-4 px-4 break">10s</button>
         <button className="rounded-full bg-white py-4 px-4 break">20s</button>
         <button className="rounded-full bg-white py-4 px-4 break">30s</button>
